@@ -10,7 +10,11 @@ const TodoList = ({ todoList, onDelete }) => {
   return (
     <TodoListWrapStyle>
       {todoList.map(todo => (
-        <TodoItem key={todo} label={todo} onDelete={() => onDelete(todo)} />
+        <TodoItem
+          key={todo} // 지금은 todo로 key값을 설정했지만 key값은 유일한 값이어야한다.
+          label={todo}
+          onDelete={() => onDelete(todo)}
+        />
       ))}
     </TodoListWrapStyle>
   );

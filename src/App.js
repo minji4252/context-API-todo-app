@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
 import Button from "components/Button";
 import DataView from "components/DataView";
-import Title from "components/Title";
-import TodoItem from "components/TodoItem";
-import TodoList from "components/TodoList";
+import InputContainer from "components/InputContainer";
+import ShowInputButton from "components/ShowInputButton";
+import TextInput from "components/TextInput";
+import TodoInput from "components/TodoInput";
 import { useState } from "react";
 
 const WrapStyle = styled.div`
@@ -25,12 +26,14 @@ function App() {
   const onDelete = todo => {
     setTodolist(todoList.filter(item => item != todo));
   };
+  const onAdd = todo => {
+    setTodolist([...todoList, todo]);
+  };
 
   return (
     <WrapStyle>
-      {/* <Title label="할 일 목록" />
-      <TodoList todoList={todoList} onDelete={onDelete} /> */}
       <DataView todoList={todoList} onDelete={onDelete} />
+      <InputContainer onAdd={onAdd} />
     </WrapStyle>
   );
 }
